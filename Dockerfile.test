@@ -1,0 +1,14 @@
+FROM python:latest
+
+RUN mkdir /minitwit-test
+
+COPY minitwit_test.py /minitwit-test/
+COPY requirements.txt /minitwit-test/
+
+WORKDIR /minitwit-test
+
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+ENTRYPOINT ["pytest", "-s", "minitwit_test.py"]
