@@ -61,8 +61,8 @@ jobs:
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "$SSH_KEY" > ~/.ssh/BenceID
+          chmod 600 ~/.ssh/BenceID
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
 
@@ -70,8 +70,8 @@ jobs:
         # Configure the ~./bash_profile and deploy.sh file on the Vagrantfile
         run: >
           ssh $SSH_USER@$SSH_HOST
-          -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no
-          '/minitwit/deploy.sh'
+          -i ~/.ssh/BenceID -o StrictHostKeyChecking=no
+          '/maxitwit/remote_files/deploy.sh'
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
