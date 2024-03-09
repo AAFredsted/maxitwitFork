@@ -42,8 +42,9 @@ Vagrant.configure("2") do |config|
     # sudo usermod -aG docker ${USER}
 
     echo -e "\nVerifying that docker works ...\n"
-    docker run --rm hello-world
-    docker rmi hello-world
+    docker pull hello-world
+    docker run hello-world
+    docker rmi hello-world --force
 
     echo -e "\nOpening port for maxitwit ...\n"
     ufw allow 3000 && \

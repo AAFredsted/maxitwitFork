@@ -20,6 +20,7 @@ HEADERS = {
 
 
 def init_db():
+    print(HEADERS)
     """Creates the database tables."""
     with closing(sqlite3.connect(DATABASE)) as db:
         with open("./schema.sql") as fp:

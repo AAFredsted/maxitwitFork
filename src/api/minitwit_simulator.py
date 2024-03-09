@@ -1,7 +1,7 @@
 """
 Call me for example like:
 
-$ python minitwit_simulator.py "http://localhost:5001"
+$ python3 minitwit_simulator.py "http://localhost:3001/"
 """
 
 import traceback
@@ -30,6 +30,7 @@ HEADERS = {
     f"Authorization": f"Basic {ENCODED_CREDENTIALS}",
 }
 
+print(HEADERS)
 
 def get_actions():
 
